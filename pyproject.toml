@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "fastapiproject"
+version = "0.1.0"
+description = "로그인, 회원가입, 게시판 기능을 제공하는 API"
+authors = ["박현신"]
+readme = "README.md"
+packages = [{include = "app"}]  # 'app' 디렉토리를 패키지로 포함
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+fastapi = ">=0.115.12,<0.116.0"
+uvicorn = ">=0.34.2,<0.35.0"
+sqlalchemy = "^2.0.40"
+pymysql = "^1.1.1"
+python-dotenv = "^1.1.0"
+pydantic = "^2.11.4"
+python-jose = {extras = ["cryptography"], version = "^3.4.0"}
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+python-multipart = "^0.0.20"
+alembic = "^1.15.2"
+python-dateutil = "^2.9.0.post0"
+pydantic-settings = "^2.9.1"
+email-validator = "^2.2.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
