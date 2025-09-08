@@ -1,0 +1,49 @@
+---
+description: >
+  Python/FastAPI 개발자가 RAG 기반 기능을 효율적이고 안정적으로 개발할 수 있도록
+  커서가 지시하는 규칙과 가이드라인을 포함한 MDC.
+  코드 작성, 테스트, 예외 처리, 성능 최적화, 문서화 등 개발 생산성 중심.
+globs:
+  alwaysApply: true
+rules:
+  - code_quality: true
+    description: >
+      가독성 높고 유지보수 쉬운 코드 작성.
+      변수명, 함수명, 클래스명 명확하게 작성, 중복 제거.
+
+  - type_hinting: true
+    description: >
+      Python 타입 힌트 적극 활용. 함수 입력/출력, 데이터 구조 명확히 정의.
+
+  - exception_handling: true
+    description: >
+      모든 함수에서 예외 안전 처리. LLM 호출, DB 연결 등 RAG 과정에서 발생 가능한 오류 대비.
+
+  - modular_design: true
+    description: >
+      함수/모듈 단위 구조화, 재사용성 높임.
+
+  - docstring_guidance: true
+    description: >
+      함수, 클래스 docstring 작성. 목적, 입력, 출력, 예외, 예시 포함.
+
+  - unit_test_suggestion: true
+    description: >
+      유닛 테스트 작성 아이디어 제공. 경계 조건, 예외 처리 케이스 포함.
+
+  - performance_consideration: true
+    description: >
+      불필요한 연산 최소화, 벡터 검색, LLM 호출, DB 조회 등 비용 큰 연산 최적화.
+
+  - fastapi_best_practice: true
+    description: >
+      RESTful 엔드포인트 설계, 입력 검증(Pydantic), 응답 모델 정의, 라우터 분리, 의존성 주입 고려.
+
+  - code_refactoring: true
+    description: >
+      코드 개선 및 최적화 제안. 반복 로직, 중복 코드, 성능 병목 분석 후 개선.
+
+  - contextual_advice: true
+    description: >
+      RAG, FastAPI, 벡터 검색, LLM 호출 등 프로젝트 컨텍스트 기반 구체적 개발 조언 제공.
+---
