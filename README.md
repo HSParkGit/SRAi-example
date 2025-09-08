@@ -113,6 +113,56 @@
    ```
    프론트엔드는 http://localhost:3000 에서 실행됩니다.
 
+## 문제 해결 가이드
+
+### 프론트엔드 의존성 문제 해결
+
+Tailwind CSS나 기타 의존성 문제가 발생할 때 완전한 재설치를 통해 해결할 수 있습니다.
+
+#### 완전한 재설치 과정 (개인 개발 시)
+
+```bash
+# 1. 개발 서버 중지
+pkill -f "next dev"
+
+# 2. 모든 모듈과 캐시 삭제
+cd frontend
+rm -rf node_modules package-lock.json .next
+
+# 3. npm 캐시 정리
+npm cache clean --force
+
+# 4. 완전히 새로 설치
+npm install
+
+# 5. 개발 서버 실행
+npm run dev
+```
+
+#### 협업 시 주의사항
+
+⚠️ **팀 프로젝트에서는 `package-lock.json`을 삭제하면 안됩니다!**
+
+협업 시에는 다음 방법을 사용하세요:
+
+```bash
+# package-lock.json은 그대로 두고
+npm ci  # package-lock.json 기반으로 정확한 버전 설치
+
+# 또는 캐시만 정리
+npm cache clean --force
+rm -rf node_modules
+npm ci
+```
+
+#### Tailwind CSS 문제 해결
+
+Tailwind CSS가 제대로 로드되지 않는 경우:
+
+1. **PostCSS 설정 확인**: `postcss.config.js` 파일 존재 여부
+2. **Tailwind CSS 버전**: v4는 불안정하므로 v3 사용 권장
+3. **캐시 문제**: 위의 완전한 재설치 과정 실행
+
 ## 테스트 실행
 
 ### 백엔드 테스트
