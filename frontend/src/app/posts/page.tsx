@@ -3,18 +3,17 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useAuth } from '@/contexts/AuthContext'
-import { getPosts } from '@/lib/api'
+import { apiClient } from '@/lib/api'
 import Navbar from '@/components/Navbar'
 
 interface Post {
   id: number
   title: string
   content: string
-  author: {
-    username: string
-  }
+  user_id: number
+  view_count: number
   created_at: string
-  updated_at: string
+  updated_at: string | null
 }
 
 export default function PostsPage() {
@@ -29,8 +28,8 @@ export default function PostsPage() {
 
   const fetchPosts = async () => {
     try {
-      const data = await getPosts()
-      setPosts(data)
+      const data = await apiClient.getPosts()
+      setPosts(data.items || [])
     } catch (err: any) {
       setError(err.message || '게시글을 불러오는데 실패했습니다.')
     } finally {
@@ -146,13 +145,15 @@ export default function PostsPage() {
                     <span className="flex items-center">
                       <span className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-2">
                         <span className="text-white text-xs font-bold">
-                          {post.author.username.charAt(0).toUpperCase()}
+                          U
                         </span>
                       </span>
-                      {post.author.username}
+                      사용자 {post.user_id}
                     </span>
                     <span>•</span>
                     <span>{formatDate(post.created_at)}</span>
+                    <span>•</span>
+                    <span>조회 {post.view_count}</span>
                   </div>
                   
                   <div className="flex items-center space-x-2">

@@ -1,4 +1,5 @@
 import logging
+import traceback
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -9,7 +10,11 @@ from app.core.config import settings
 from app.db.base import get_db
 from app.db.init_db import init_db
 
-logging.basicConfig(level=logging.INFO)
+# 더 자세한 로깅 설정
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
 logger = logging.getLogger(__name__)
 
 app = FastAPI(

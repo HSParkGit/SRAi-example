@@ -11,7 +11,7 @@ export default function RegisterPage() {
     username: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirm_password: ''
   })
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -30,14 +30,14 @@ export default function RegisterPage() {
     setLoading(true)
     setError('')
 
-    if (formData.password !== formData.confirmPassword) {
+    if (formData.password !== formData.confirm_password) {
       setError('비밀번호가 일치하지 않습니다.')
       setLoading(false)
       return
     }
 
     try {
-      await register(formData.username, formData.email, formData.password)
+      await register(formData.username, formData.email, formData.password, formData.confirm_password)
       router.push('/posts')
     } catch (err: any) {
       setError(err.message || '회원가입에 실패했습니다.')
@@ -121,15 +121,15 @@ export default function RegisterPage() {
               </div>
 
               <div>
-                <label htmlFor="confirmPassword" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="confirm_password" className="block text-sm font-semibold text-gray-700 mb-2">
                   비밀번호 확인
                 </label>
                 <input
-                  id="confirmPassword"
-                  name="confirmPassword"
+                  id="confirm_password"
+                  name="confirm_password"
                   type="password"
                   required
-                  value={formData.confirmPassword}
+                  value={formData.confirm_password}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/50"
                   placeholder="비밀번호를 다시 입력하세요"

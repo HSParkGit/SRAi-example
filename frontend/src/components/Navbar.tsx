@@ -22,17 +22,29 @@ export default function Navbar() {
 
           {/* 네비게이션 메뉴 */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link 
+            <Link
               href="/posts" 
               className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
               게시판
+            </Link>
+            <Link
+              href="/ai" 
+              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+            >
+              🤖 AI
             </Link>
             {user ? (
               <div className="flex items-center space-x-4">
                 <span className="text-gray-700 text-sm">
                   안녕하세요, <span className="font-medium">{user.username}</span>님!
                 </span>
+                <Link
+                  href="/profile"
+                  className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  프로필
+                </Link>
                 <button
                   onClick={logout}
                   className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"

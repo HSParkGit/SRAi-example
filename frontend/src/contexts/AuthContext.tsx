@@ -15,7 +15,7 @@ interface AuthContextType {
   user: User | null;
   loading: boolean;
   login: (email: string, password: string) => Promise<void>;
-  register: (email: string, password: string, full_name: string) => Promise<void>;
+  register: (username: string, email: string, password: string, confirm_password: string) => Promise<void>;
   logout: () => void;
   isAuthenticated: boolean;
 }
@@ -64,9 +64,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
-  const register = async (email: string, password: string, full_name: string) => {
+  const register = async (username: string, email: string, password: string, confirm_password: string) => {
     try {
-      await apiClient.register(email, password, full_name);
+      await apiClient.register(username, email, password, confirm_password);
       // 회원가입 후 자동 로그인
       await login(email, password);
     } catch (error) {

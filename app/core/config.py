@@ -26,7 +26,7 @@ class Settings(BaseSettings):
     
     # 데이터베이스 설정
     DATABASE_URL: str = os.getenv(
-        "DATABASE_URL", "sqlite:///./app.db"
+        "DATABASE_URL", "postgresql://postgres:password@localhost:5432/fastapi_ai"
     )
     
     # 관리자 계정 설정
