@@ -13,13 +13,11 @@ from app.api.deps import get_current_active_user
 from app import models
 from app.core.security import create_access_token
 
-# 테스트용 SQLite 메모리 데이터베이스
-TEST_DATABASE_URL = "sqlite:///./test.db"
+# 테스트용 PostgreSQL 데이터베이스
+TEST_DATABASE_URL = "postgresql://postgres:password@localhost:5432/fastapi_ai_test"
 
 # 테스트용 데이터베이스 엔진 설정
-engine = create_engine(
-    TEST_DATABASE_URL, connect_args={"check_same_thread": False}
-)
+engine = create_engine(TEST_DATABASE_URL)
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 @pytest.fixture(scope="function")

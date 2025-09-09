@@ -4,7 +4,7 @@
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-CC2927?style=for-the-badge&logo=sqlite&logoColor=white)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-CC2927?style=for-the-badge&logo=postgresql&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
@@ -59,7 +59,7 @@
 - **Pydantic**: 데이터 검증 및 설정 관리
 - **Alembic**: 데이터베이스 마이그레이션
 - **JWT**: JSON Web Token 기반 인증
-- **SQLite**: 개발용 데이터베이스 (실 환경에서는 PostgreSQL로 전환 가능)
+- **PostgreSQL**: 벡터 데이터베이스 지원 (pgvector 확장)
 
 ### 프론트엔드
 - **Next.js**: React 기반 프레임워크

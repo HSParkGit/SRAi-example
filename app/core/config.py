@@ -25,9 +25,7 @@ class Settings(BaseSettings):
         raise ValueError(v)
     
     # 데이터베이스 설정
-    DATABASE_URL: str = os.getenv(
-        "DATABASE_URL", "postgresql://postgres:password@localhost:5432/fastapi_ai"
-    )
+    DATABASE_URL: str = os.getenv("DATABASE_URL")
     
     # 관리자 계정 설정
     ADMIN_EMAIL: str = os.getenv("ADMIN_EMAIL", "admin@example.com")
