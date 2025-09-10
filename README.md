@@ -74,16 +74,52 @@
 
 ## 설치 및 실행 방법
 
-### 백엔드 설정
+### 1. 개발 환경 설정
 
-1. Poetry 설치 (의존성 관리 도구)
-   ```bash
-   pip install poetry
-   ```
+#### Python 환경 설정
+```bash
+# pyenv로 Python 3.13.7 설치 (이미 설치된 경우 생략)
+pyenv install 3.13.7
 
-2. 의존성 설치
+# 프로젝트 디렉토리에서 Python 버전 설정
+pyenv local 3.13.7
+```
+
+#### Poetry 설치 (이미 설치된 경우 생략)
+```bash
+# Poetry 설치
+curl -sSL https://install.python-poetry.org | python3 -
+
+# PATH에 Poetry 추가 (이미 설정된 경우 생략)
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+#### PostgreSQL 설정
+```bash
+# PostgreSQL 설치 (macOS)
+brew install postgresql
+
+# PostgreSQL 서비스 시작
+brew services start postgresql
+
+# 데이터베이스 생성
+createdb fastapi_ai
+
+# pgvector 확장 설치
+psql -d fastapi_ai -c "CREATE EXTENSION IF NOT EXISTS vector;"
+```
+
+### 2. 백엔드 실행
+
+1. 의존성 설치
    ```bash
    poetry install
+   ```
+
+2. 환경 변수 설정
+   ```bash
+   # .env 파일이 이미 설정되어 있음
+   # DATABASE_URL=postgresql://postgres:password@localhost:5432/fastapi_ai
    ```
 
 3. 데이터베이스 마이그레이션
@@ -97,7 +133,7 @@
    ```
    서버는 http://localhost:8000 에서 실행됩니다.
 
-### 프론트엔드 설정
+### 3. 프론트엔드 실행
 
 1. Node.js 설치 (v18 이상)
 
